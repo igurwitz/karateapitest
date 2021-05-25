@@ -1,0 +1,46 @@
+@Library('jenkins_shared_library')_ 
+
+BRANCH_NAME = 'develop'
+GITHUB_CREDENTIALS_ID = 'd99c1094-c811-4c3c-b5da-tbd'
+GIT_REPO = 'https://github.com/signals-analytics/qa-api-automation'
+pipeline {
+    agent {
+        label 'qa-api-automation'
+    }
+    parameters {
+        //string(name: 'SCENARIO', defaultValue: "YaleCovidProcess")
+    }
+
+    stages{
+        stage ('qa-api-automation - Checkout'){
+            steps {
+                script {
+                    
+                 	 git branch: BRANCH_NAME, credentialsId: GITHUB_CREDENTIALS_ID, url: GIT_REPO
+
+                    }
+                }
+            }
+ 
+        // Batch build step
+        stage ('qa-api-automation - Build'){
+            steps {
+                script{
+                bat "mvn test"
+                    
+                }
+            }
+        }
+    }
+        
+    //Email notification
+    post {
+        success {
+                emailNotification body: "Console Output: ${env.BUILD_URL}/console", subject: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' - Success!", to: 'itay.gurwitz@kenshoo.com'
+
+            }
+            failure {
+                 emailNotification body: "Console Output: ${env.BUILD_URL}/console", subject: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' - Failed!", to: 'itay.gurwitz@kenshoo.com'
+             }
+         }
+}
