@@ -1,8 +1,8 @@
 @Library('jenkins_shared_library')_ 
 
-BRANCH_NAME = 'develop'
-GITHUB_CREDENTIALS_ID = 'd99c1094-c811-4c3c-b5da-tbd'
-GIT_REPO = 'https://github.com/signals-analytics/qa-api-automation'
+BRANCH_NAME = 'master'
+GITHUB_CREDENTIALS_ID = 'e63b99a7-0ae5-411b-82af-0e4a4f96b44f'
+GIT_REPO = 'https://github.com/igurwitz/karateapitest'
 pipeline {
     agent {
         label 'qa-api-automation'
