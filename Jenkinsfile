@@ -24,6 +24,7 @@ pipeline {
       steps {
         echo "Start Stage Build"
         sh 'mvn -version'
+        sh 'mvn test'
       }
     }
   
