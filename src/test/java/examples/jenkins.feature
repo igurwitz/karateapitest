@@ -1,20 +1,20 @@
 Feature: Demo Karate with Jenkins
 
   Scenario: Verify that Jenkins is up and running
-    Given url 'http://192.168.1.142:8080/api/json?pretty=true'
+    Given url 'http://127.0.0.1:8080/api/json?pretty=true'
     When method GET
     Then status 403
 
   Scenario: Verify Jenkins asks for authentication
     def expected = 'You are authenticated as: anonymous'
-    Given url 'http://192.168.1.142:8080/api/json?pretty=true'
+    Given url 'http://127.0.0.1:8080/api/json?pretty=true'
     And def expected = 'You are authenticated as: anonymous'
     When method GET
     Then match $ contains expected
     Then print response
 
   Scenario: Authenticate Jenkins
-    * url 'http://192.168.1.142:8080/api/json?pretty=true'
+    * url 'http://127.0.0.1:8080/api/json?pretty=true'
     And request ' --user admin:admin'
     When method POST
     Then print response
