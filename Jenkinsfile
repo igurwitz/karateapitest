@@ -1,5 +1,3 @@
-@Library('jenkins_shared_library')_ 
-
 BRANCH_NAME = 'master'
 GITHUB_CREDENTIALS_ID = 'e63b99a7-0ae5-411b-82af-0e4a4f96b44f'
 GIT_REPO = 'https://github.com/igurwitz/karateapitest'
