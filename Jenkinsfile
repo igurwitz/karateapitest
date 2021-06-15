@@ -29,4 +29,16 @@ pipeline {
     }
   
   }
+  post {
+    always {
+      publishHTML target: [
+      allowMissing         : false,
+      alwaysLinkToLastBuild: false,
+      keepAll              : true,
+      reportDir            : 'kenshoo/java/cucumber/build/cucumber/report',
+      reportFiles          : 'cucumber_report.html',
+      reportName           : 'Cucumber Platform Report'
+      ]
+    }
+	}
 }
