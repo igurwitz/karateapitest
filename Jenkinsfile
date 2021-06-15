@@ -35,9 +35,9 @@ pipeline {
       allowMissing         : false,
       alwaysLinkToLastBuild: false,
       keepAll              : true,
-      reportDir            : 'kenshoo/java/cucumber/build/cucumber/report',
-      reportFiles          : 'cucumber_report.html',
-      reportName           : 'Cucumber Platform Report'
+      reportDir            : '/var/lib/jenkins/workspace/ApiKarateTest/target/surefire-reports',
+      reportFiles          : 'karate-summary.html',
+      reportName           : 'Karate Report'
       ]
     }
 	}
