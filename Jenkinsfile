@@ -13,10 +13,9 @@ pipeline {
   stages {
     stage ('qa-api-automation - Checkout'){
             steps {
-                script {
-                    
-                 	 git branch: BRANCH_NAME, credentialsId: GITHUB_CREDENTIALS_ID, url: GIT_REPO
-			java -version
+		    sh 'java -version'
+                script {                    
+                 	 git branch: BRANCH_NAME, credentialsId: GITHUB_CREDENTIALS_ID, url: GIT_REPO				
                     }
                 }
             }
