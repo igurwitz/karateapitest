@@ -34,7 +34,7 @@ pipeline {
       allowMissing         : false,
       alwaysLinkToLastBuild: false,
       keepAll              : true,
-      reportDir            : '/var/lib/jenkins/workspace/ApiKarateTest/target/surefire-reports',
+      reportDir            : '/home/osboxes/ubuntu/jenkinsnode/workspace/ApiKarateTest/target/surefire-reports/',
       reportFiles          : 'karate-summary.html',
       reportName           : 'Karate Report'
       ]
